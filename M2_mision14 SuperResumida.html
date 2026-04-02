@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 14 - Mejorar la robustez del sistema</title>
+  <style>
+    :root{--bg:#f4f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--primary:#2563eb;--primary-dark:#1d4ed8;--border:#dbe3ef;--shadow:0 10px 30px rgba(37,99,235,.08);--radius:18px;--ok:#dcfce7}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,var(--bg) 100%);color:var(--text);line-height:1.5}
+    .wrap{width:min(980px,92%);margin:0 auto;padding:24px 0 48px}.hero{background:linear-gradient(135deg,#2563eb,#60a5fa);color:#fff;padding:28px;border-radius:24px;box-shadow:var(--shadow);margin-bottom:20px}
+    .tag{display:inline-block;background:rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;font-size:14px;margin-bottom:10px}.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+    h1,h2,h3{margin-top:0} h1{font-size:32px;margin-bottom:10px} h2{font-size:24px;color:#1e40af}.steps{counter-reset:paso;padding:0;margin:0}.steps li{list-style:none;margin-bottom:14px;padding:14px 14px 14px 54px;background:#f8fbff;border:1px solid var(--border);border-radius:14px;position:relative}.steps li::before{counter-increment:paso;content:counter(paso);width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;position:absolute;left:14px;top:14px}
+    .box{background:#f8fbff;border:1px dashed #93c5fd;border-radius:14px;padding:16px}.note{background:var(--ok);border:1px solid #86efac;padding:14px;border-radius:14px;color:#166534;font-weight:bold} label{display:block;font-weight:bold;margin-bottom:6px;color:#1f3a8a}
+    input,textarea{width:100%;padding:12px 14px;border:1px solid #bfd3f2;border-radius:12px;font-size:15px;background:#fff;margin-bottom:14px} textarea{min-height:90px;resize:vertical}.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+    button{border:none;border-radius:12px;padding:12px 18px;font-size:15px;font-weight:bold;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#e0ecff;color:#1e3a8a}.footer{text-align:center;color:var(--muted);font-size:14px;margin-top:24px} ul.clean{margin:0;padding-left:20px}
+    @media (max-width:760px){.cols{grid-template-columns:1fr}h1{font-size:27px}h2{font-size:22px}.hero{padding:22px}} @media print{body{background:#fff}.wrap{width:100%;padding:0}.card,.hero{box-shadow:none;break-inside:avoid}.actions{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="tag">Trayecto inicial · Misión 14</div>
+      <h1>Mejorar la robustez del sistema</h1>
+      <p>En esta misión vas a hacer que tu proyecto sea más confiable. Ya no se trata solo de que funcione, sino de que funcione mejor, con menos errores, menos confusiones y una experiencia más clara para el usuario.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Propósito de la misión</h2>
+      <p>El objetivo es agregar <strong>mejoras de robustez</strong> a la lógica y a la interfaz para que el sistema responda de forma más estable y predecible.</p>
+      <div class="note">Meta simple: elegir al menos dos mejoras que hagan tu sistema más claro, más estable o más fácil de usar.</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Qué debe hacer el alumno</h2>
+      <ol class="steps">
+        <li>Abrí el proyecto que construiste hasta la misión 13.</li>
+        <li>Probá el sistema varias veces para encontrar algo que todavía pueda mejorar.</li>
+        <li>Elegí al menos <strong>dos mejoras</strong> de robustez.</li>
+        <li>Una mejora puede ser el <strong>antirrebote</strong> del pulsador para evitar dobles acciones.</li>
+        <li>Otra mejora puede ser hacer más claros los mensajes de la página web.</li>
+        <li>También podés evitar clics repetidos o diferenciar mejor los modos del sistema.</li>
+        <li>Pedile ayuda a la IA para pensar errores comunes y cómo prevenirlos.</li>
+        <li>Aplicá las mejoras en Steamakers Blocks.</li>
+        <li>Cargá el programa en la placa y volvé a probar.</li>
+        <li>Compará cómo funcionaba antes y cómo funciona ahora.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>3. Consulta sugerida para hacerle a la IA</h2>
+      <div class="box">
+        <p><strong>Prompt para copiar y pegar:</strong></p>
+        <p>Estoy trabajando con una Wemos D1 en Steamakers Blocks. Mi sistema ya funciona, pero ahora quiero mejorarlo para que sea más robusto. Necesito ideas simples para agregar antirrebote al pulsador, evitar acciones repetidas, mejorar mensajes de la interfaz web y hacer más clara la diferencia entre modos del sistema. Explicame opciones fáciles para un principiante y decime qué bloques podría revisar.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Plantilla de trabajo para completar</h2>
+      <p>Completá esta ficha y después apretá <strong>Descargar en PDF</strong>.</p>
+      <div class="cols">
+        <div><label for="nombre">Nombre y apellido</label><input id="nombre" type="text" placeholder="Escribí tu nombre y apellido" /></div>
+        <div><label for="fecha">Fecha</label><input id="fecha" type="date" /></div>
+      </div>
+      <label for="mision">Nombre de la misión</label>
+      <input id="mision" type="text" value="Misión 14 - Mejorar la robustez del sistema" />
+      <label for="entendi">Qué entendí de esta misión</label><textarea id="entendi" placeholder="Ejemplo: Entendí que un sistema bueno no solo funciona, también evita errores y confusiones."></textarea>
+      <label for="pedi">Qué le pedí a la IA</label><textarea id="pedi" placeholder="Escribí la pregunta o prompt que usaste."></textarea>
+      <label for="respondio">Qué respuesta me dio la IA</label><textarea id="respondio" placeholder="Contá brevemente qué te respondió."></textarea>
+      <label for="hice">Qué hice con esa respuesta</label><textarea id="hice" placeholder="Ejemplo: Agregué antirrebote al pulsador y mejoré los mensajes de la web."></textarea>
+      <label for="resultado">Resultado obtenido</label><textarea id="resultado" placeholder="Ejemplo: El pulsador dejó de activar dos veces y la página quedó más clara."></textarea>
+      <label for="aprendi">Qué fue lo más importante que aprendí</label><textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+      <label for="duda">Qué duda me quedó</label><textarea id="duda" placeholder="Escribí una duda si todavía te quedó alguna."></textarea>
+      <div class="actions"><button class="btn-primary" onclick="window.print()">Descargar en PDF</button><button class="btn-light" onclick="limpiarFormulario()">Limpiar formulario</button></div>
+    </section>
+
+    <section class="card">
+      <h2>5. Criterio de entrega</h2>
+      <ul class="clean">
+        <li>Debés mostrar al menos dos mejoras reales de robustez.</li>
+        <li>Debe notarse claramente qué problema mejoraste.</li>
+        <li>Tenés que poder comparar el antes y el después.</li>
+        <li>La plantilla debe estar completa.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Ejemplo de respuesta simple</h2>
+      <div class="box">
+        <p><strong>Qué entendí de esta misión:</strong> Entendí que aunque algo funcione, todavía puede mejorar para ser más confiable y más fácil de usar.</p>
+        <p><strong>Resultado obtenido:</strong> El pulsador ya no genera dobles acciones y la página web muestra mensajes más claros para el usuario.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Guion del video (60 a 90 segundos)</h2>
+      <div class="box">
+        <p><strong>Inicio:</strong> Decí tu nombre y nombrá la misión.</p>
+        <p><strong>Demostración:</strong> Mostrá una mejora concreta, por ejemplo el antirrebote o un mensaje más claro en la web.</p>
+        <p><strong>Explicación final:</strong> Contá qué problema detectaste, qué le pediste a la IA y cómo cambió el funcionamiento después de la mejora.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Cierre motivador</h2>
+      <p>Excelente. Estás entrando en una etapa más profesional del proyecto. Mejorar la robustez es aprender a pensar como alguien que no solo construye, sino que también cuida la experiencia de uso.</p>
+    </section>
+
+    <p class="footer">Página lista para aula o Classroom · Misión 14 simplificada</p>
+  </div>
+  <script>
+    function limpiarFormulario(){const campos=document.querySelectorAll('input[type="text"], input[type="date"], textarea');campos.forEach(c=>{if(c.id==='mision'){c.value='Misión 14 - Mejorar la robustez del sistema';}else{c.value='';}})}
+  </script>
+</body>
+</html>

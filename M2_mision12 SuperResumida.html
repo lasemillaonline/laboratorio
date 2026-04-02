@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 12 - Crear un tablero web más completo</title>
+  <style>
+    :root{--bg:#f4f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--primary:#2563eb;--primary-dark:#1d4ed8;--border:#dbe3ef;--shadow:0 10px 30px rgba(37,99,235,.08);--radius:18px;--ok:#dcfce7}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,var(--bg) 100%);color:var(--text);line-height:1.5}
+    .wrap{width:min(980px,92%);margin:0 auto;padding:24px 0 48px}.hero{background:linear-gradient(135deg,#2563eb,#60a5fa);color:#fff;padding:28px;border-radius:24px;box-shadow:var(--shadow);margin-bottom:20px}
+    .tag{display:inline-block;background:rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;font-size:14px;margin-bottom:10px}.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+    h1,h2,h3{margin-top:0} h1{font-size:32px;margin-bottom:10px} h2{font-size:24px;color:#1e40af}.steps{counter-reset:paso;padding:0;margin:0}.steps li{list-style:none;margin-bottom:14px;padding:14px 14px 14px 54px;background:#f8fbff;border:1px solid var(--border);border-radius:14px;position:relative}.steps li::before{counter-increment:paso;content:counter(paso);width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;position:absolute;left:14px;top:14px}
+    .box{background:#f8fbff;border:1px dashed #93c5fd;border-radius:14px;padding:16px}.note{background:var(--ok);border:1px solid #86efac;padding:14px;border-radius:14px;color:#166534;font-weight:bold} label{display:block;font-weight:bold;margin-bottom:6px;color:#1f3a8a}
+    input,textarea{width:100%;padding:12px 14px;border:1px solid #bfd3f2;border-radius:12px;font-size:15px;background:#fff;margin-bottom:14px} textarea{min-height:90px;resize:vertical}.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+    button{border:none;border-radius:12px;padding:12px 18px;font-size:15px;font-weight:bold;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#e0ecff;color:#1e3a8a}.footer{text-align:center;color:var(--muted);font-size:14px;margin-top:24px} ul.clean{margin:0;padding-left:20px}
+    @media (max-width:760px){.cols{grid-template-columns:1fr}h1{font-size:27px}h2{font-size:22px}.hero{padding:22px}} @media print{body{background:#fff}.wrap{width:100%;padding:0}.card,.hero{box-shadow:none;break-inside:avoid}.actions{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="tag">Trayecto inicial · Misión 12</div>
+      <h1>Crear un tablero web más completo</h1>
+      <p>En esta misión vas a mejorar la página web de la placa para que no controle solo un LED. Ahora vas a poder manejar los tres LEDs y también mostrar datos del pulsador y del sensor de luz.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Propósito de la misión</h2>
+      <p>El objetivo es convertir la página en un <strong>tablero útil</strong>, con más controles y más información visible del nodo.</p>
+      <div class="note">Meta simple: tener una sola página donde puedas controlar luces y ver datos importantes de la placa.</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Qué debe hacer el alumno</h2>
+      <ol class="steps">
+        <li>Abrí el proyecto que ya venías usando en Steamakers Blocks.</li>
+        <li>Comprobá que la red WiFi local y la página anterior todavía funcionen bien.</li>
+        <li>Agregá controles para el LED rojo D8.</li>
+        <li>Agregá controles para el LED azul D7.</li>
+        <li>Agregá controles para el LED verde D6.</li>
+        <li>Mostrá en la página un dato simple del pulsador D2, por ejemplo: presionado o no presionado.</li>
+        <li>Mostrá en la página un dato simple del sensor A0, por ejemplo: luz baja, media o alta.</li>
+        <li>Ordená la página para que quede clara y fácil de usar.</li>
+        <li>Cargá el programa en la placa.</li>
+        <li>Probá todo desde un celular o notebook conectado a la red de la placa.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>3. Consulta sugerida para hacerle a la IA</h2>
+      <div class="box">
+        <p><strong>Prompt para copiar y pegar:</strong></p>
+        <p>Estoy trabajando con una Wemos D1 en Steamakers Blocks. Ya tengo una página web local y ahora quiero transformarla en un tablero más completo. Necesito controlar los tres LEDs onboard (D8, D7 y D6) y además mostrar una lectura simple del pulsador D2 y del sensor A0. Explicame en pasos muy simples qué bloques puedo usar, cómo ordenar la página para que no quede confusa y cómo mostrar la información de forma clara para un principiante.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Plantilla de trabajo para completar</h2>
+      <p>Completá esta ficha y después apretá <strong>Descargar en PDF</strong>.</p>
+      <div class="cols">
+        <div><label for="nombre">Nombre y apellido</label><input id="nombre" type="text" placeholder="Escribí tu nombre y apellido" /></div>
+        <div><label for="fecha">Fecha</label><input id="fecha" type="date" /></div>
+      </div>
+      <label for="mision">Nombre de la misión</label>
+      <input id="mision" type="text" value="Misión 12 - Crear un tablero web más completo" />
+      <label for="entendi">Qué entendí de esta misión</label><textarea id="entendi" placeholder="Ejemplo: Entendí que la página web puede controlar varias salidas y mostrar datos del sistema."></textarea>
+      <label for="pedi">Qué le pedí a la IA</label><textarea id="pedi" placeholder="Escribí la pregunta o prompt que usaste."></textarea>
+      <label for="respondio">Qué respuesta me dio la IA</label><textarea id="respondio" placeholder="Contá brevemente qué te respondió."></textarea>
+      <label for="hice">Qué hice con esa respuesta</label><textarea id="hice" placeholder="Ejemplo: Agregué botones para los tres LEDs y textos para el pulsador y el sensor."></textarea>
+      <label for="resultado">Resultado obtenido</label><textarea id="resultado" placeholder="Ejemplo: Desde la misma página pude prender LEDs y ver el estado del pulsador y la luz."></textarea>
+      <label for="aprendi">Qué fue lo más importante que aprendí</label><textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+      <label for="duda">Qué duda me quedó</label><textarea id="duda" placeholder="Escribí una duda si todavía te quedó alguna."></textarea>
+      <div class="actions"><button class="btn-primary" onclick="window.print()">Descargar en PDF</button><button class="btn-light" onclick="limpiarFormulario()">Limpiar formulario</button></div>
+    </section>
+
+    <section class="card">
+      <h2>5. Criterio de entrega</h2>
+      <ul class="clean">
+        <li>La página debe controlar los tres LEDs.</li>
+        <li>La página debe mostrar un dato del pulsador y un dato del sensor.</li>
+        <li>La interfaz debe verse ordenada y fácil de entender.</li>
+        <li>La plantilla debe estar completa.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Ejemplo de respuesta simple</h2>
+      <div class="box">
+        <p><strong>Qué entendí de esta misión:</strong> Entendí que un tablero web puede servir para controlar varias cosas al mismo tiempo y también para mostrar información del sistema.</p>
+        <p><strong>Resultado obtenido:</strong> Hice una página con botones para los tres LEDs y textos que muestran si el pulsador está apretado y si hay mucha o poca luz.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Guion del video (60 a 90 segundos)</h2>
+      <div class="box">
+        <p><strong>Inicio:</strong> Decí tu nombre y nombrá la misión.</p>
+        <p><strong>Demostración:</strong> Mostrá la página completa y probá al menos dos controles y una lectura.</p>
+        <p><strong>Explicación final:</strong> Contá qué le pediste a la IA, cómo ordenaste la página y qué parte fue la más importante del tablero.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Cierre motivador</h2>
+      <p>Muy bien. Tu proyecto ya no es una página simple: ahora empieza a parecerse a un tablero real de control. Eso significa que estás construyendo una solución más completa y más útil.</p>
+    </section>
+
+    <p class="footer">Página lista para aula o Classroom · Misión 12 simplificada</p>
+  </div>
+  <script>
+    function limpiarFormulario(){const campos=document.querySelectorAll('input[type="text"], input[type="date"], textarea');campos.forEach(c=>{if(c.id==='mision'){c.value='Misión 12 - Crear un tablero web más completo';}else{c.value='';}})}
+  </script>
+</body>
+</html>

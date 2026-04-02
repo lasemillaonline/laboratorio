@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 9 - Crear la red WiFi de la placa</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #dbeafe;
+      --ok: #dcfce7;
+      --border: #dbe3ef;
+      --shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      width: min(980px, 92%);
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      color: white;
+      padding: 28px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 { margin-top: 0; }
+    h1 { font-size: 32px; margin-bottom: 10px; }
+    h2 { font-size: 24px; color: #1e40af; }
+    h3 { font-size: 18px; color: #1d4ed8; }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .steps {
+      counter-reset: paso;
+      padding: 0;
+      margin: 0;
+    }
+
+    .steps li {
+      list-style: none;
+      margin-bottom: 14px;
+      padding: 14px 14px 14px 54px;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .steps li::before {
+      counter-increment: paso;
+      content: counter(paso);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      position: absolute;
+      left: 14px;
+      top: 14px;
+    }
+
+    .prompt-box, .example-box, .video-box {
+      background: #f8fbff;
+      border: 1px dashed #93c5fd;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .mini-note {
+      background: var(--ok);
+      border: 1px solid #86efac;
+      padding: 14px;
+      border-radius: 14px;
+      color: #166534;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #1f3a8a;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #bfd3f2;
+      border-radius: 12px;
+      font-size: 15px;
+      background: white;
+      margin-bottom: 14px;
+    }
+
+    textarea { min-height: 90px; resize: vertical; }
+
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-light {
+      background: #e0ecff;
+      color: #1e3a8a;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 24px;
+    }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 760px) {
+      .cols { grid-template-columns: 1fr; }
+      h1 { font-size: 27px; }
+      h2 { font-size: 22px; }
+      .hero { padding: 22px; }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .wrap {
+        width: 100%;
+        padding: 0;
+      }
+      .card, .hero {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="tag">Trayecto inicial · Misión 9</div>
+      <h1>Crear la red WiFi de la placa</h1>
+      <p>En esta misión vas a lograr que la Wemos D1 cree su propia red WiFi. Después vas a conectarte a esa red y vas a entender, con palabras simples, cómo viaja una orden desde el celular o la notebook hasta la placa.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Propósito de la misión</h2>
+      <p>El objetivo es que puedas encender el modo <strong>AP-WiFi</strong> de la placa, ver la red creada por la Wemos D1 y reconocer la <strong>IP local</strong> para entrar luego desde un navegador.</p>
+      <div class="mini-note">Meta simple: que la placa emita una red WiFi propia y que vos puedas conectarte a ella.</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Qué debe hacer el alumno</h2>
+      <ol class="steps">
+        <li>Abrí tu proyecto en Steamakers Blocks.</li>
+        <li>Buscá los bloques para usar la placa en modo <strong>AP-WiFi</strong>.</li>
+        <li>Elegí un nombre para la red WiFi, por ejemplo: <strong>Nodo-MiNombre</strong>.</li>
+        <li>Agregá una contraseña simple si la actividad lo pide.</li>
+        <li>Usá el LED azul D7 como señal de que la red está activa.</li>
+        <li>Cargá el programa en la placa.</li>
+        <li>Desde un celular o notebook, buscá la red WiFi creada por la placa y conectate.</li>
+        <li>Anotá el nombre de la red y la IP local que te muestre la actividad o la IA.</li>
+        <li>Explicá con tus palabras este recorrido: <strong>dispositivo → red WiFi de la placa → placa</strong>.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>3. Consulta sugerida para hacerle a la IA</h2>
+      <div class="prompt-box">
+        <p><strong>Prompt para copiar y pegar:</strong></p>
+        <p>Estoy trabajando con una Wemos D1 en Steamakers Blocks. Necesito activar el modo AP-WiFi para que la placa cree su propia red local. Quiero que me expliques en pasos muy simples qué bloques debo usar, cómo poner el nombre de la red, cómo indicar que está activa con el LED azul D7 y cómo explicar el recorrido de la orden desde un celular hasta la placa. Escribilo para un principiante.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Plantilla de trabajo para completar</h2>
+      <p>Completá esta ficha en la misma página. Cuando termines, apretá el botón <strong>Descargar en PDF</strong> para guardarla y entregarla.</p>
+
+      <div class="cols">
+        <div>
+          <label for="nombre">Nombre y apellido</label>
+          <input id="nombre" type="text" placeholder="Escribí tu nombre y apellido" />
+        </div>
+        <div>
+          <label for="fecha">Fecha</label>
+          <input id="fecha" type="date" />
+        </div>
+      </div>
+
+      <label for="mision">Nombre de la misión</label>
+      <input id="mision" type="text" value="Misión 9 - Crear la red WiFi de la placa" />
+
+      <label for="entendi">Qué entendí de esta misión</label>
+      <textarea id="entendi" placeholder="Ejemplo: Entendí que la placa puede crear su propia red WiFi y que yo puedo conectarme a esa red desde el celular."></textarea>
+
+      <label for="pedi">Qué le pedí a la IA</label>
+      <textarea id="pedi" placeholder="Escribí la pregunta o prompt que usaste."></textarea>
+
+      <label for="respondio">Qué respuesta me dio la IA</label>
+      <textarea id="respondio" placeholder="Contá brevemente qué te respondió."></textarea>
+
+      <label for="hice">Qué hice con esa respuesta</label>
+      <textarea id="hice" placeholder="Ejemplo: Armé los bloques del modo AP-WiFi y probé la conexión con mi celular."></textarea>
+
+      <label for="resultado">Resultado obtenido</label>
+      <textarea id="resultado" placeholder="Ejemplo: La placa creó la red WiFi, pude verla en el celular y me conecté correctamente."></textarea>
+
+      <label for="aprendi">Qué fue lo más importante que aprendí</label>
+      <textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+
+      <label for="duda">Qué duda me quedó</label>
+      <textarea id="duda" placeholder="Escribí una duda si todavía te quedó alguna."></textarea>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="window.print()">Descargar en PDF</button>
+        <button class="btn-light" onclick="limpiarFormulario()">Limpiar formulario</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. Criterio de entrega</h2>
+      <ul class="clean">
+        <li>La placa debe crear una red WiFi propia.</li>
+        <li>Debe verse la conexión desde un celular o notebook.</li>
+        <li>La plantilla debe estar completa.</li>
+        <li>Debés explicar con palabras simples cómo viaja la orden dentro de esa red local.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Ejemplo de respuesta simple</h2>
+      <div class="example-box">
+        <p><strong>Qué entendí de esta misión:</strong> Entendí que la Wemos D1 puede crear su propia red WiFi y que no necesita Internet para conectarme.</p>
+        <p><strong>Resultado obtenido:</strong> La red apareció en mi celular, me conecté y pude identificar la dirección local de acceso.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Guion del video (60 a 90 segundos)</h2>
+      <div class="video-box">
+        <p><strong>Inicio (10 segundos):</strong> Decí tu nombre y nombrá la misión.</p>
+        <p><strong>Demostración (15 a 20 segundos):</strong> Mostrá la placa y la red WiFi creada por ella en tu celular o notebook.</p>
+        <p><strong>Explicación final (30 a 60 segundos):</strong> Contá qué le pediste a la IA, qué bloques usaste, cómo se conecta el dispositivo a la red de la placa y qué resultado lograste.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Cierre motivador</h2>
+      <p>Muy bien. En esta misión diste un paso importante: la placa ya no solo ejecuta bloques, ahora también crea su propia red. Eso significa que estás cada vez más cerca de controlarla desde la web. SeguÍ avanzando, vas muy bien.</p>
+    </section>
+
+    <p class="footer">Página lista para usar en aula o Classroom · Misión simplificada para principiantes</p>
+  </div>
+
+  <script>
+    function limpiarFormulario() {
+      const campos = document.querySelectorAll('input[type="text"], input[type="date"], textarea');
+      campos.forEach(campo => {
+        if (campo.id === 'mision') {
+          campo.value = 'Misión 9 - Crear la red WiFi de la placa';
+        } else {
+          campo.value = '';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

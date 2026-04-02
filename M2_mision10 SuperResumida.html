@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 10 - Crear la primera página web de la placa</title>
+  <style>
+    :root{--bg:#f4f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--primary:#2563eb;--primary-dark:#1d4ed8;--border:#dbe3ef;--shadow:0 10px 30px rgba(37,99,235,.08);--radius:18px;--ok:#dcfce7}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,var(--bg) 100%);color:var(--text);line-height:1.5}
+    .wrap{width:min(980px,92%);margin:0 auto;padding:24px 0 48px}.hero{background:linear-gradient(135deg,#2563eb,#60a5fa);color:#fff;padding:28px;border-radius:24px;box-shadow:var(--shadow);margin-bottom:20px}
+    .tag{display:inline-block;background:rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;font-size:14px;margin-bottom:10px}.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+    h1,h2,h3{margin-top:0} h1{font-size:32px;margin-bottom:10px} h2{font-size:24px;color:#1e40af}.steps{counter-reset:paso;padding:0;margin:0}.steps li{list-style:none;margin-bottom:14px;padding:14px 14px 14px 54px;background:#f8fbff;border:1px solid var(--border);border-radius:14px;position:relative}.steps li::before{counter-increment:paso;content:counter(paso);width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;position:absolute;left:14px;top:14px}
+    .box{background:#f8fbff;border:1px dashed #93c5fd;border-radius:14px;padding:16px}.note{background:var(--ok);border:1px solid #86efac;padding:14px;border-radius:14px;color:#166534;font-weight:bold} label{display:block;font-weight:bold;margin-bottom:6px;color:#1f3a8a}
+    input,textarea{width:100%;padding:12px 14px;border:1px solid #bfd3f2;border-radius:12px;font-size:15px;background:#fff;margin-bottom:14px} textarea{min-height:90px;resize:vertical}.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+    button{border:none;border-radius:12px;padding:12px 18px;font-size:15px;font-weight:bold;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#e0ecff;color:#1e3a8a}.footer{text-align:center;color:var(--muted);font-size:14px;margin-top:24px} ul.clean{margin:0;padding-left:20px}
+    @media (max-width:760px){.cols{grid-template-columns:1fr}h1{font-size:27px}h2{font-size:22px}.hero{padding:22px}} @media print{body{background:#fff}.wrap{width:100%;padding:0}.card,.hero{box-shadow:none;break-inside:avoid}.actions{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="tag">Trayecto inicial · Misión 10</div>
+      <h1>Crear la primera página web de la placa</h1>
+      <p>En esta misión vas a hacer que la Wemos D1 muestre una página web creada por ella misma. Esa página se va a abrir desde un celular o una notebook conectados a la red local de la placa.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Propósito de la misión</h2>
+      <p>El objetivo es que la placa tenga un <strong>servidor web mínimo</strong> y que vos puedas abrir una primera página en el navegador.</p>
+      <div class="note">Meta simple: entrar desde el navegador a una página servida por la propia placa.</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Qué debe hacer el alumno</h2>
+      <ol class="steps">
+        <li>Abrí tu proyecto en Steamakers Blocks.</li>
+        <li>Revisá que la placa ya esté creando su red WiFi local.</li>
+        <li>Buscá los bloques para iniciar un <strong>servidor web</strong>.</li>
+        <li>Creá una página simple con un título, un saludo y el nombre del proyecto.</li>
+        <li>Podés agregar un mensaje como: <strong>Bienvenido al nodo local</strong>.</li>
+        <li>Usá el LED azul D7 para indicar que el servidor está activo.</li>
+        <li>Cargá el programa en la placa.</li>
+        <li>Conectate a la red WiFi de la placa desde el celular o la notebook.</li>
+        <li>Abrí el navegador y escribí la dirección local para ver la página.</li>
+        <li>Comprobá que la página aparece correctamente.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>3. Consulta sugerida para hacerle a la IA</h2>
+      <div class="box">
+        <p><strong>Prompt para copiar y pegar:</strong></p>
+        <p>Estoy trabajando con una Wemos D1 en Steamakers Blocks. Ya tengo la placa en modo AP-WiFi y ahora necesito crear un servidor web mínimo para mostrar una primera página simple. Explicame en pasos muy fáciles qué bloques debo usar, cómo hacer una ruta principal, qué texto HTML básico puedo mostrar y cómo indicar con el LED azul D7 que el servidor está activo. Escribilo para un principiante.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Plantilla de trabajo para completar</h2>
+      <p>Completá esta ficha y después apretá <strong>Descargar en PDF</strong>.</p>
+      <div class="cols">
+        <div><label for="nombre">Nombre y apellido</label><input id="nombre" type="text" placeholder="Escribí tu nombre y apellido" /></div>
+        <div><label for="fecha">Fecha</label><input id="fecha" type="date" /></div>
+      </div>
+      <label for="mision">Nombre de la misión</label>
+      <input id="mision" type="text" value="Misión 10 - Crear la primera página web de la placa" />
+      <label for="entendi">Qué entendí de esta misión</label><textarea id="entendi" placeholder="Ejemplo: Entendí que la placa puede mostrar una página web desde su propia red local."></textarea>
+      <label for="pedi">Qué le pedí a la IA</label><textarea id="pedi" placeholder="Escribí la pregunta o prompt que usaste."></textarea>
+      <label for="respondio">Qué respuesta me dio la IA</label><textarea id="respondio" placeholder="Contá brevemente qué te respondió."></textarea>
+      <label for="hice">Qué hice con esa respuesta</label><textarea id="hice" placeholder="Ejemplo: Armé los bloques del servidor web y cargué una página simple."></textarea>
+      <label for="resultado">Resultado obtenido</label><textarea id="resultado" placeholder="Ejemplo: Pude abrir la página desde el navegador conectado a la red de la placa."></textarea>
+      <label for="aprendi">Qué fue lo más importante que aprendí</label><textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+      <label for="duda">Qué duda me quedó</label><textarea id="duda" placeholder="Escribí una duda si todavía te quedó alguna."></textarea>
+      <div class="actions"><button class="btn-primary" onclick="window.print()">Descargar en PDF</button><button class="btn-light" onclick="limpiarFormulario()">Limpiar formulario</button></div>
+    </section>
+
+    <section class="card">
+      <h2>5. Criterio de entrega</h2>
+      <ul class="clean">
+        <li>La placa debe servir una página web local.</li>
+        <li>La página debe abrirse desde un navegador conectado al AP de la placa.</li>
+        <li>La plantilla debe estar completa.</li>
+        <li>Debés poder explicar que esa página sale de la placa y no de Internet.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Ejemplo de respuesta simple</h2>
+      <div class="box">
+        <p><strong>Qué entendí de esta misión:</strong> Entendí que la placa puede actuar como un pequeño servidor web y mostrar una página propia.</p>
+        <p><strong>Resultado obtenido:</strong> Me conecté a la red de la Wemos D1 y abrí una página con el nombre del proyecto y un mensaje de bienvenida.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Guion del video (60 a 90 segundos)</h2>
+      <div class="box">
+        <p><strong>Inicio:</strong> Decí tu nombre y nombrá la misión.</p>
+        <p><strong>Demostración:</strong> Mostrá el navegador abriendo la página local de la placa.</p>
+        <p><strong>Explicación final:</strong> Contá qué le pediste a la IA, qué bloques usaste y cómo comprobaste que la página la sirve la placa.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Cierre motivador</h2>
+      <p>Excelente. Ahora la placa no solo crea una red: también puede mostrar una página web. Estás dando un paso muy importante hacia el control real desde el navegador.</p>
+    </section>
+
+    <p class="footer">Página lista para aula o Classroom · Misión 10 simplificada</p>
+  </div>
+  <script>
+    function limpiarFormulario(){const campos=document.querySelectorAll('input[type="text"], input[type="date"], textarea');campos.forEach(c=>{if(c.id==='mision'){c.value='Misión 10 - Crear la primera página web de la placa';}else{c.value='';}})}
+  </script>
+</body>
+</html>

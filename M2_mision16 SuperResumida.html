@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 16 - Mostrar y explicar tu proyecto final</title>
+  <style>
+    :root{--bg:#f4f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--primary:#2563eb;--primary-dark:#1d4ed8;--border:#dbe3ef;--shadow:0 10px 30px rgba(37,99,235,.08);--radius:18px;--ok:#dcfce7}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,var(--bg) 100%);color:var(--text);line-height:1.5}
+    .wrap{width:min(980px,92%);margin:0 auto;padding:24px 0 48px}.hero{background:linear-gradient(135deg,#2563eb,#60a5fa);color:#fff;padding:28px;border-radius:24px;box-shadow:var(--shadow);margin-bottom:20px}
+    .tag{display:inline-block;background:rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;font-size:14px;margin-bottom:10px}.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+    h1,h2,h3{margin-top:0} h1{font-size:32px;margin-bottom:10px} h2{font-size:24px;color:#1e40af}.steps{counter-reset:paso;padding:0;margin:0}.steps li{list-style:none;margin-bottom:14px;padding:14px 14px 14px 54px;background:#f8fbff;border:1px solid var(--border);border-radius:14px;position:relative}.steps li::before{counter-increment:paso;content:counter(paso);width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;position:absolute;left:14px;top:14px}
+    .box{background:#f8fbff;border:1px dashed #93c5fd;border-radius:14px;padding:16px}.note{background:var(--ok);border:1px solid #86efac;padding:14px;border-radius:14px;color:#166534;font-weight:bold} label{display:block;font-weight:bold;margin-bottom:6px;color:#1f3a8a}
+    input,textarea{width:100%;padding:12px 14px;border:1px solid #bfd3f2;border-radius:12px;font-size:15px;background:#fff;margin-bottom:14px} textarea{min-height:90px;resize:vertical}.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+    button{border:none;border-radius:12px;padding:12px 18px;font-size:15px;font-weight:bold;cursor:pointer}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#e0ecff;color:#1e3a8a}.footer{text-align:center;color:var(--muted);font-size:14px;margin-top:24px} ul.clean{margin:0;padding-left:20px}
+    @media (max-width:760px){.cols{grid-template-columns:1fr}h1{font-size:27px}h2{font-size:22px}.hero{padding:22px}} @media print{body{background:#fff}.wrap{width:100%;padding:0}.card,.hero{box-shadow:none;break-inside:avoid}.actions{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="tag">Trayecto inicial · Misión 16</div>
+      <h1>Mostrar y explicar tu proyecto final</h1>
+      <p>En esta misión vas a cerrar el trayecto mostrando tu proyecto completo y explicándolo con palabras simples. No solo importa que funcione: también importa que puedas contar qué hiciste, cómo te ayudó la IA y qué aprendiste.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Propósito de la misión</h2>
+      <p>El objetivo es preparar una <strong>demostración final</strong> del proyecto y completar una <strong>ficha de portafolio</strong> clara, breve y fácil de entender.</p>
+      <div class="note">Meta simple: grabar un video corto donde se vea el proyecto funcionando y completar una ficha con lo más importante.</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Qué debe hacer el alumno</h2>
+      <ol class="steps">
+        <li>Revisá que tu proyecto final funcione bien antes de grabar.</li>
+        <li>Prepará el celular para grabar un video de entre 60 y 90 segundos.</li>
+        <li>Mostrá tu rostro al inicio y decí tu nombre.</li>
+        <li>Nombrá el proyecto: <strong>Nodo IoT Local Onboard</strong>.</li>
+        <li>Mostrá la página web o tablero funcionando.</li>
+        <li>Mostrá una reacción real de la placa, por ejemplo un LED o una lectura.</li>
+        <li>Explicá en palabras simples qué construiste.</li>
+        <li>Contá qué le pediste a la IA y cómo te ayudó.</li>
+        <li>Contá qué fue lo más importante que aprendiste en todo el trayecto.</li>
+        <li>Completá la ficha de portafolio en esta misma página.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>3. Consulta sugerida para hacerle a la IA</h2>
+      <div class="box">
+        <p><strong>Prompt para copiar y pegar:</strong></p>
+        <p>Terminé mi proyecto con Wemos D1 en Steamakers Blocks y necesito preparar una explicación final muy simple para un video de 60 a 90 segundos. Ayudame a redactar un guion corto, claro y natural para contar qué construí, cómo me ayudó la IA, qué partes del sistema funcionan y qué fue lo más importante que aprendí. Escribilo para un principiante y con frases fáciles de decir en voz alta.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Plantilla de trabajo para completar</h2>
+      <p>Completá esta ficha y después apretá <strong>Descargar en PDF</strong>.</p>
+      <div class="cols">
+        <div><label for="nombre">Nombre y apellido</label><input id="nombre" type="text" placeholder="Escribí tu nombre y apellido" /></div>
+        <div><label for="fecha">Fecha</label><input id="fecha" type="date" /></div>
+      </div>
+      <label for="mision">Nombre de la misión</label>
+      <input id="mision" type="text" value="Misión 16 - Mostrar y explicar tu proyecto final" />
+      <label for="proyecto">Nombre del proyecto</label>
+      <input id="proyecto" type="text" value="Nodo IoT Local Onboard" />
+      <label for="problema">Qué problema resuelve mi proyecto</label>
+      <textarea id="problema" placeholder="Ejemplo: Mi proyecto permite controlar funciones de la placa desde una web local y ver el estado del sistema."></textarea>
+      <label for="recursos">Qué recursos usé</label>
+      <textarea id="recursos" placeholder="Ejemplo: Usé la Wemos D1, los LEDs onboard, el pulsador D2, el sensor A0, Steamakers Blocks y la IA."></textarea>
+      <label for="ia">Cómo me ayudó la IA</label>
+      <textarea id="ia" placeholder="Ejemplo: La IA me ayudó a ordenar bloques, pensar mejoras y explicar el proyecto."></textarea>
+      <label for="funciona">Qué partes del sistema funcionan</label>
+      <textarea id="funciona" placeholder="Ejemplo: Funciona la red WiFi de la placa, la página web, el control de LEDs y las lecturas del pulsador y del sensor."></textarea>
+      <label for="aprendi">Qué fue lo más importante que aprendí</label>
+      <textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+      <label for="duda">Qué duda o mejora futura me quedó</label>
+      <textarea id="duda" placeholder="Escribí una duda o una mejora que te gustaría hacer más adelante."></textarea>
+      <div class="actions"><button class="btn-primary" onclick="window.print()">Descargar en PDF</button><button class="btn-light" onclick="limpiarFormulario()">Limpiar formulario</button></div>
+    </section>
+
+    <section class="card">
+      <h2>5. Criterio de entrega</h2>
+      <ul class="clean">
+        <li>Debés entregar un video de entre 60 y 90 segundos.</li>
+        <li>En el video debe verse el proyecto funcionando.</li>
+        <li>Debés explicar qué construiste y cómo te ayudó la IA.</li>
+        <li>La ficha de portafolio debe estar completa.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Ejemplo de respuesta simple</h2>
+      <div class="box">
+        <p><strong>Qué problema resuelve mi proyecto:</strong> Mi proyecto permite controlar una placa desde una página web local y mostrar información útil sin usar Internet.</p>
+        <p><strong>Cómo me ayudó la IA:</strong> Me ayudó a pensar mejor los pasos, ordenar los bloques y explicar con claridad lo que hice.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Guion del video (60 a 90 segundos)</h2>
+      <div class="box">
+        <p><strong>Inicio (0 a 10 segundos):</strong> Hola, soy [tu nombre] y este es mi proyecto final, Nodo IoT Local Onboard.</p>
+        <p><strong>Demostración (10 a 25 segundos):</strong> Acá muestro la página web o tablero y la reacción de la placa.</p>
+        <p><strong>Explicación final (25 a 90 segundos):</strong> Este proyecto lo hice con Wemos D1, Steamakers Blocks e IA. La IA me ayudó a ordenar ideas, mejorar la lógica y explicar el proceso. Mi proyecto puede crear una red local, mostrar una web y controlar funciones reales de la placa. Lo más importante que aprendí fue...</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Cierre motivador</h2>
+      <p>Felicitaciones. Llegaste al final del trayecto con un proyecto real, funcionando y explicado por vos. Eso vale mucho, porque no solo construiste algo: también demostraste que podés comprenderlo, contarlo y compartirlo.</p>
+    </section>
+
+    <p class="footer">Página lista para aula o Classroom · Misión 16 simplificada</p>
+  </div>
+  <script>
+    function limpiarFormulario(){const campos=document.querySelectorAll('input[type="text"], input[type="date"], textarea');campos.forEach(c=>{if(c.id==='mision'){c.value='Misión 16 - Mostrar y explicar tu proyecto final';}else if(c.id==='proyecto'){c.value='Nodo IoT Local Onboard';}else{c.value='';}})}
+  </script>
+</body>
+</html>

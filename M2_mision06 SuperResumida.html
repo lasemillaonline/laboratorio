@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 6 - Rangos de luz</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --text:#213047;
+      --muted:#5f6f86;
+      --primary:#2f6fed;
+      --primary-soft:#eaf1ff;
+      --accent:#18a67a;
+      --warning:#ffb020;
+      --danger:#e34d59;
+      --border:#dbe4f0;
+      --shadow:0 10px 30px rgba(30, 59, 114, 0.10);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#eef4ff 0%, #f7f9fc 100%);
+      color:var(--text);
+    }
+
+    .wrap{max-width:1100px; margin:0 auto; padding:24px;}
+    .hero{
+      background:linear-gradient(135deg,#2f6fed 0%, #5f8fff 100%);
+      color:#fff;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+    h1,h2,h3{margin:0 0 12px}
+    h1{font-size:34px; line-height:1.15}
+    h2{font-size:24px}
+    h3{font-size:18px}
+    p{line-height:1.55; margin:0 0 12px}
+    .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:20px;}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      margin-bottom:20px;
+    }
+    .mini{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px;}
+    .pill{
+      border-radius:16px;
+      padding:14px;
+      color:#fff;
+      font-weight:bold;
+      text-align:center;
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .red{background:var(--danger)}
+    .yellow{background:var(--warning); color:#4a3500}
+    .green{background:var(--accent)}
+    ol, ul{margin:10px 0 0 22px; padding:0}
+    li{margin:8px 0; line-height:1.5}
+    .prompt{
+      background:#0f172a;
+      color:#eff6ff;
+      border-radius:16px;
+      padding:18px;
+      white-space:pre-wrap;
+      font-size:15px;
+      line-height:1.55;
+      border:1px solid #1e293b;
+    }
+    .btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:14px;}
+    button{
+      border:none;
+      border-radius:12px;
+      padding:12px 16px;
+      font-size:15px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .primary{background:var(--primary); color:#fff}
+    .soft{background:var(--primary-soft); color:var(--primary); border:1px solid #bfd0ff}
+    .ok{background:#e9fbf4; color:#127a5b; border:1px solid #b8ecd8}
+    button:hover{transform:translateY(-1px)}
+    .template-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    .field{display:flex; flex-direction:column; gap:8px; margin-bottom:10px;}
+    .field.full{grid-column:1/-1}
+    label{font-size:14px; font-weight:bold; color:#31445f;}
+    input, textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px;
+      font-size:15px;
+      font-family:Arial, Helvetica, sans-serif;
+      background:#fff;
+      color:var(--text);
+    }
+    textarea{min-height:110px; resize:vertical}
+    .tip{
+      background:#fff8e8;
+      border:1px solid #ffe0a3;
+      border-radius:14px;
+      padding:14px;
+      color:#7a5a12;
+      margin-top:10px;
+    }
+    .footer-note{text-align:center; color:var(--muted); font-size:14px; margin-top:18px;}
+    @media (max-width: 900px){
+      .grid,.template-grid,.mini{grid-template-columns:1fr}
+      h1{font-size:28px}
+      .wrap{padding:16px}
+    }
+    @media print{
+      body{background:#fff}
+      .wrap{max-width:100%; padding:0}
+      .hero,.card{box-shadow:none}
+      .btns{display:none}
+      input,textarea{border:1px solid #999}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Trayecto Inicial · Misión 6</div>
+      <h1>Misión 6: Leer la luz y mostrar si hay poca, media o mucha</h1>
+      <p>En esta actividad vas a usar el sensor de luz de la placa para reconocer distintos niveles de iluminación. Después, vas a mostrar esos niveles con los LEDs para que el resultado sea fácil de ver.</p>
+    </section>
+
+    <div class="grid">
+      <div>
+        <section class="card">
+          <h2>1. Propósito de la misión</h2>
+          <p>Vas a aprender que un sensor no solo da un número: también te ayuda a <strong>tomar decisiones</strong>.</p>
+          <p>Al terminar, vas a poder leer la luz del ambiente y clasificarla en tres niveles simples: <strong>baja, media y alta</strong>.</p>
+          <div class="mini">
+            <div class="pill red">Poca luz</div>
+            <div class="pill yellow">Luz media</div>
+            <div class="pill green">Mucha luz</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>2. Qué debe hacer el alumno</h2>
+          <ol>
+            <li>Leé el valor del sensor de luz en A0.</li>
+            <li>Probá el sensor en distintas situaciones: tapándolo, con luz normal y con mucha luz.</li>
+            <li>Anotá qué valores aparecen en cada caso.</li>
+            <li>Elegí 3 rangos simples: baja, media y alta iluminación.</li>
+            <li>Asigná un LED para cada rango.</li>
+            <li>Programá la placa para que muestre con una luz distinta el nivel detectado.</li>
+            <li>Probá varias veces y ajustá los números si hace falta.</li>
+          </ol>
+          <div class="tip">
+            <strong>Idea simple:</strong> primero observá los valores reales y después elegí los rangos. No hace falta adivinarlos antes.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>3. Consulta sugerida para hacerle a la IA</h2>
+          <div id="promptText" class="prompt">Ayudame a programar en bloques una Wemos D1.
+Quiero leer el sensor de luz en A0 y dividir la lectura en 3 niveles.
+
+Condiciones:
+- Sensor de luz en A0
+- LED rojo en D8 para poca luz
+- LED azul en D7 para luz media
+- LED verde en D6 para mucha luz
+- Quiero usar rangos simples
+- Necesito que me expliques paso a paso cómo hacerlo en bloques
+- También quiero saber cómo probar y ajustar los valores de cada rango
+
+Explicalo con palabras fáciles, como para un principiante.</div>
+          <div class="btns">
+            <button class="soft" onclick="copiarPrompt()">Copiar prompt</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>4. Criterio de entrega</h2>
+          <p>El alumno debe entregar:</p>
+          <ul>
+            <li>La plantilla completa desde esta página.</li>
+            <li>Un video corto donde se vea cómo cambia la respuesta de la placa según la luz.</li>
+            <li>Una explicación breve de los rangos que eligió.</li>
+          </ul>
+          <p><strong>La misión está lograda</strong> si el sensor detecta distintos niveles de luz y la placa los muestra con una respuesta visible y clara.</p>
+        </section>
+
+        <section class="card">
+          <h2>5. Guion del video (60 a 90 segundos)</h2>
+          <ol>
+            <li><strong>Inicio:</strong> Decí tu nombre y el nombre de la misión.</li>
+            <li><strong>Demostración:</strong> Mostrá cómo cambia el sensor cuando lo tapás o lo acercás a una luz.</li>
+            <li><strong>Explicación:</strong> Contá qué le pediste a la IA, qué rangos usaste y qué significa cada LED.</li>
+            <li><strong>Cierre:</strong> Decí si tuviste que ajustar los valores y qué aprendiste.</li>
+          </ol>
+        </section>
+      </div>
+
+      <div>
+        <section class="card">
+          <h2>6. Plantilla de trabajo para completar</h2>
+          <div class="template-grid">
+            <div class="field">
+              <label for="nombre">Nombre y apellido</label>
+              <input id="nombre" type="text" placeholder="Escribí tu nombre completo" />
+            </div>
+            <div class="field">
+              <label for="fecha">Fecha</label>
+              <input id="fecha" type="date" />
+            </div>
+
+            <div class="field full">
+              <label for="mision">Nombre de la misión</label>
+              <input id="mision" type="text" value="Misión 6: Leer la luz y mostrar si hay poca, media o mucha" />
+            </div>
+
+            <div class="field full">
+              <label for="entendi">Qué entendí de esta misión</label>
+              <textarea id="entendi" placeholder="Ejemplo: Entendí que el sensor da valores y que esos valores se pueden dividir en rangos."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="pedi">Qué le pedí a la IA</label>
+              <textarea id="pedi" placeholder="Escribí la pregunta o prompt que usaste."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="respuesta">Qué respuesta me dio la IA</label>
+              <textarea id="respuesta" placeholder="Contá con tus palabras qué te respondió."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="hice">Qué hice con esa respuesta</label>
+              <textarea id="hice" placeholder="Ejemplo: Probé el sensor, vi los valores y armé los bloques para encender un LED según el rango."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="resultado">Resultado obtenido</label>
+              <textarea id="resultado" placeholder="Ejemplo: Logré que los LEDs cambien cuando varía la luz del ambiente."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="aprendi">Qué fue lo más importante que aprendí</label>
+              <textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="duda">Qué duda me quedó</label>
+              <textarea id="duda" placeholder="Escribí una duda o algo que quieras seguir practicando."></textarea>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="primary" onclick="window.print()">Descargar / Guardar en PDF</button>
+            <button class="ok" onclick="guardarDatos()">Guardar en este navegador</button>
+            <button class="soft" onclick="cargarDatos()">Recuperar datos guardados</button>
+            <button class="soft" onclick="limpiarFormulario()">Limpiar</button>
+          </div>
+          <div class="tip">
+            Para entregarla en PDF, hacé clic en <strong>Descargar / Guardar en PDF</strong> y elegí <strong>Guardar como PDF</strong> en la ventana de impresión.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>7. Cierre motivador</h2>
+          <p>Muy bien. En esta misión ya empezaste a trabajar con un <strong>sensor real</strong> y a convertir datos en una respuesta útil.</p>
+          <p>Eso es muy importante: ya no solo programás salidas, ahora también <strong>interpretás lo que pasa en el ambiente</strong>.</p>
+        </section>
+      </div>
+    </div>
+
+    <p class="footer-note">Página lista para completar en clase, guardar y entregar.</p>
+  </div>
+
+  <script>
+    const ids = ["nombre","fecha","mision","entendi","pedi","respuesta","hice","resultado","aprendi","duda"];
+
+    function copiarPrompt(){
+      const text = document.getElementById('promptText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Prompt copiado.');
+      }).catch(() => {
+        alert('No se pudo copiar automáticamente. Copialo manualmente.');
+      });
+    }
+
+    function guardarDatos(){
+      const data = {};
+      ids.forEach(id => data[id] = document.getElementById(id).value);
+      localStorage.setItem('mision6_simple', JSON.stringify(data));
+      alert('Datos guardados en este navegador.');
+    }
+
+    function cargarDatos(){
+      const raw = localStorage.getItem('mision6_simple');
+      if(!raw){
+        alert('No hay datos guardados todavía.');
+        return;
+      }
+      const data = JSON.parse(raw);
+      ids.forEach(id => {
+        if(data[id] !== undefined) document.getElementById(id).value = data[id];
+      });
+      alert('Datos recuperados.');
+    }
+
+    function limpiarFormulario(){
+      if(!confirm('¿Querés limpiar el formulario?')) return;
+      ids.forEach(id => document.getElementById(id).value = '');
+      document.getElementById('mision').value = 'Misión 6: Leer la luz y mostrar si hay poca, media o mucha';
+    }
+
+    window.addEventListener('load', () => {
+      const hoy = new Date();
+      const yyyy = hoy.getFullYear();
+      const mm = String(hoy.getMonth()+1).padStart(2,'0');
+      const dd = String(hoy.getDate()).padStart(2,'0');
+      if(!document.getElementById('fecha').value){
+        document.getElementById('fecha').value = `${yyyy}-${mm}-${dd}`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 4 - Usar el pulsador para controlar una luz</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --primary:#2563eb;
+      --primary-soft:#dbeafe;
+      --ok:#16a34a;
+      --warn:#f59e0b;
+      --border:#dbe3ef;
+      --shadow:0 10px 30px rgba(37,99,235,.10);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#eef4ff 0%, var(--bg) 100%);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    .hero{
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+      color:#fff;
+      padding:28px;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+    .hero small{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:bold;
+      letter-spacing:.3px;
+    }
+    h1,h2,h3{margin:0 0 12px}
+    h1{font-size:34px}
+    h2{font-size:24px;color:#1746a2}
+    p{margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+    }
+    .full{grid-column:1/-1}
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:#1746a2;
+      font-weight:bold;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+    ol,ul{padding-left:20px;margin:10px 0 0}
+    li{margin-bottom:8px}
+    .prompt{
+      background:#0f172a;
+      color:#e5eefc;
+      border-radius:16px;
+      padding:16px;
+      white-space:pre-wrap;
+      font-size:15px;
+    }
+    .mini-example{
+      background:#f8fafc;
+      border-left:5px solid var(--ok);
+      padding:12px 14px;
+      border-radius:12px;
+      margin-top:12px;
+    }
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    label{font-weight:bold;color:#1e3a8a}
+    input, textarea{
+      width:100%;
+      border:1px solid #cfd8e3;
+      border-radius:12px;
+      padding:12px;
+      font-size:15px;
+      background:#fff;
+      color:#111827;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .span-2{grid-column:span 2}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    button{
+      border:none;
+      border-radius:14px;
+      padding:12px 18px;
+      font-size:15px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-secondary{background:#e5e7eb;color:#111827}
+    .footer-note{text-align:center;color:var(--muted);margin-top:20px;font-size:14px}
+    .video-box{
+      background:linear-gradient(135deg,#fef3c7,#fff7ed);
+      border:1px solid #fde68a;
+      border-radius:18px;
+      padding:18px;
+    }
+    .check{
+      background:#effcf3;
+      border:1px solid #bbf7d0;
+      border-radius:14px;
+      padding:14px;
+    }
+    @media (max-width:780px){
+      .grid,.form-grid{grid-template-columns:1fr}
+      .span-2{grid-column:span 1}
+      h1{font-size:28px}
+      .wrap{padding:14px}
+    }
+    @media print{
+      body{background:#fff}
+      .hero{background:#fff !important;color:#000;border:2px solid #ccc;box-shadow:none}
+      .card{box-shadow:none;break-inside:avoid}
+      .actions,.footer-note{display:none !important}
+      input,textarea{border:1px solid #aaa}
+      .wrap{max-width:100%;padding:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <small>Misión 4</small>
+      <h1>Usar el pulsador para controlar una luz</h1>
+      <p>Actividad simple para principiantes. Vas a usar el pulsador D2 de la placa para encender o apagar un LED y aprender a corregir errores sin empezar de nuevo.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="tag">1. Propósito</div>
+        <h2>¿Para qué sirve esta misión?</h2>
+        <p>En esta misión vas a aprender a usar una <strong>entrada digital</strong>: el pulsador onboard de la placa.</p>
+        <p>Cuando lo presiones, el sistema debe responder con una acción visible, por ejemplo:</p>
+        <ul>
+          <li>encender el LED verde D6 mientras apretás, o</li>
+          <li>apagarlo cuando soltás el botón.</li>
+        </ul>
+        <p>También vas a practicar algo muy importante: <strong>corregir la lógica</strong> si el comportamiento sale al revés o no funciona como esperabas.</p>
+      </article>
+
+      <article class="card">
+        <div class="tag">2. Tarea</div>
+        <h2>¿Qué tenés que hacer?</h2>
+        <ol>
+          <li>Abrí Steamakers Blocks.</li>
+          <li>Elegí la placa Wemos D1.</li>
+          <li>Pedile a la IA una ayuda simple para leer el pulsador D2.</li>
+          <li>Armá una lógica para que el pulsador controle el LED verde D6.</li>
+          <li>Cargá el programa en la placa.</li>
+          <li>Probá qué pasa cuando apretás y soltás el botón.</li>
+          <li>Si funciona al revés, corregilo sin borrar todo.</li>
+          <li>Volvé a probar hasta que la respuesta sea clara.</li>
+        </ol>
+      </article>
+
+      <article class="card full">
+        <div class="tag">3. Consulta sugerida para IA</div>
+        <h2>Copiá y pegá este pedido</h2>
+        <div class="prompt">Necesito ayuda para programar en bloques una Wemos D1. Quiero usar el pulsador onboard en D2 para controlar el LED verde D6. Cuando presione el botón, el LED debe encenderse, y cuando lo suelte, debe apagarse. Explicámelo paso a paso, con palabras simples, para poder armarlo en Steamakers Blocks. Si la lógica queda invertida, decime cómo corregirla sin empezar todo de nuevo.</div>
+        <div class="mini-example">
+          <strong>Ejemplo simple de resultado esperado:</strong><br>
+          Cuando aprieto el pulsador, el LED verde se enciende. Cuando dejo de apretar, el LED se apaga.
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="tag">4. Entrega</div>
+        <h2>¿Qué tenés que entregar?</h2>
+        <div class="check">
+          <p><strong>Tenés que entregar 2 cosas:</strong></p>
+          <ul>
+            <li>La plantilla completa de esta página.</li>
+            <li>Un video de 60 a 90 segundos mostrando el pulsador D2 controlando el LED.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="tag">5. Cierre</div>
+        <h2>Mensaje final</h2>
+        <p>Muy bien. Ya empezaste a interactuar con la placa usando una acción real del usuario. Esto es muy importante porque ahora no solo programás salidas: también empezás a leer entradas y corregir tu lógica con más confianza.</p>
+      </article>
+
+      <article class="card full video-box">
+        <div class="tag">Guion del video</div>
+        <h2>Guion sugerido de 60 a 90 segundos</h2>
+        <ol>
+          <li><strong>Presentación:</strong> decí tu nombre y el nombre de la misión.</li>
+          <li><strong>Demostración:</strong> mostr&aacute; el pulsador D2 y el LED verde D6 funcionando.</li>
+          <li><strong>Explicación:</strong> contá qué le pediste a la IA.</li>
+          <li><strong>Proceso:</strong> explicá qué bloques o idea usaste para leer el botón.</li>
+          <li><strong>Corrección:</strong> contá si algo funcionó al revés y cómo lo corregiste.</li>
+          <li><strong>Cierre:</strong> decí qué fue lo más importante que aprendiste.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="card" id="plantilla">
+      <div class="tag">Plantilla para completar</div>
+      <h2>Completá esta ficha</h2>
+      <form class="form-grid">
+        <div class="field">
+          <label for="nombre">Nombre y apellido</label>
+          <input id="nombre" type="text" placeholder="Escribí tu nombre" />
+        </div>
+        <div class="field">
+          <label for="fecha">Fecha</label>
+          <input id="fecha" type="date" />
+        </div>
+        <div class="field span-2">
+          <label for="mision">Nombre de la misión</label>
+          <input id="mision" type="text" value="Misión 4 - Usar el pulsador para controlar una luz" />
+        </div>
+        <div class="field span-2">
+          <label for="entendi">Qué entendí de esta misión</label>
+          <textarea id="entendi" placeholder="Ejemplo: entendí que el pulsador es una entrada y que puede controlar una luz."></textarea>
+        </div>
+        <div class="field span-2">
+          <label for="pedi">Qué le pedí a la IA</label>
+          <textarea id="pedi" placeholder="Escribí el prompt o pedido que usaste."></textarea>
+        </div>
+        <div class="field span-2">
+          <label for="respuesta">Qué respuesta me dio la IA</label>
+          <textarea id="respuesta" placeholder="Contá brevemente qué te respondió."></textarea>
+        </div>
+        <div class="field span-2">
+          <label for="hice">Qué hice con esa respuesta</label>
+          <textarea id="hice" placeholder="Ejemplo: armé los bloques, probé el botón y corregí la condición."></textarea>
+        </div>
+        <div class="field span-2">
+          <label for="resultado">Resultado obtenido</label>
+          <textarea id="resultado" placeholder="Ejemplo: logré que el LED verde se encienda al presionar el pulsador."></textarea>
+        </div>
+        <div class="field span-2">
+          <label for="aprendi">Qué fue lo más importante que aprendí</label>
+          <textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+        </div>
+        <div class="field span-2">
+          <label for="duda">Qué duda me quedó</label>
+          <textarea id="duda" placeholder="Escribí una duda o algo que quieras seguir practicando."></textarea>
+        </div>
+      </form>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="window.print()">Descargar en PDF</button>
+        <button class="btn-secondary" onclick="limpiarFormulario()">Limpiar formulario</button>
+      </div>
+      <p class="footer-note">Para guardar en PDF: hacé clic en “Descargar en PDF” y elegí la opción “Guardar como PDF” en tu navegador.</p>
+    </section>
+  </div>
+
+  <script>
+    function limpiarFormulario(){
+      document.querySelectorAll('input[type="text"], input[type="date"], textarea').forEach(campo => {
+        if(campo.id === 'mision'){
+          campo.value = 'Misión 4 - Usar el pulsador para controlar una luz';
+        } else {
+          campo.value = '';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

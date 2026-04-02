@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 7 - Sistema local listo antes de la web</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --primary:#2563eb;
+      --primary-2:#dbeafe;
+      --ok:#16a34a;
+      --accent:#7c3aed;
+      --line:#dbe3ef;
+      --warn:#fff7ed;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:24px;
+    }
+    .hero{
+      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      color:#fff;
+      border-radius:22px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(37,99,235,.18);
+      margin-bottom:20px;
+    }
+    .hero h1{margin:0 0 8px;font-size:32px}
+    .hero p{margin:0;font-size:16px;max-width:760px}
+    .chipbar{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      background:rgba(255,255,255,.18);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+    }
+    .toolbar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:16px 0 22px;
+    }
+    button{
+      border:none;
+      border-radius:12px;
+      padding:12px 16px;
+      font-size:15px;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:16px;
+    }
+    .card{
+      grid-column:span 12;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 6px 18px rgba(15,23,42,.05);
+    }
+    .half{grid-column:span 6}
+    .third{grid-column:span 4}
+    h2{
+      margin:0 0 12px;
+      font-size:22px;
+      color:#111827;
+    }
+    h3{margin:0 0 10px;font-size:18px}
+    p{margin:0 0 10px}
+    ul,ol{margin:10px 0 0 22px;padding:0}
+    li{margin-bottom:8px}
+    .note{
+      background:var(--warn);
+      border-left:5px solid #f59e0b;
+      padding:12px 14px;
+      border-radius:12px;
+      margin-top:12px;
+    }
+    .prompt{
+      background:#0f172a;
+      color:#f8fafc;
+      border-radius:16px;
+      padding:16px;
+      white-space:pre-wrap;
+      font-size:15px;
+    }
+    label{
+      display:block;
+      font-weight:700;
+      margin:12px 0 6px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:15px;
+      color:var(--ink);
+    }
+    textarea{min-height:92px;resize:vertical}
+    .small{min-height:64px}
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      padding:18px 0 8px;
+    }
+    .okbox{
+      background:#f0fdf4;
+      border:1px solid #bbf7d0;
+      border-radius:14px;
+      padding:14px;
+    }
+    .video-step{
+      background:var(--primary-2);
+      border-radius:14px;
+      padding:14px;
+      margin-bottom:10px;
+    }
+    .example{
+      background:#f5f3ff;
+      border:1px solid #ddd6fe;
+      border-radius:14px;
+      padding:14px;
+      margin-top:10px;
+    }
+    @media (max-width: 860px){
+      .half,.third{grid-column:span 12}
+      .hero h1{font-size:26px}
+    }
+    @media print{
+      body{background:#fff}
+      .wrap{max-width:100%;padding:0}
+      .toolbar{display:none}
+      .hero,.card{box-shadow:none}
+      .card,.hero{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Misión 7: Probar todo en la placa antes de usar la web</h1>
+      <p>En esta actividad vas a juntar el pulsador, el sensor y las luces de la placa en un solo sistema simple. Primero lo hacés funcionar en modo local. Después, en las próximas misiones, lo vas a llevar a la web.</p>
+      <div class="chipbar">
+        <div class="chip">Nivel: principiante</div>
+        <div class="chip">Modalidad: paso a paso</div>
+        <div class="chip">Con ayuda de IA</div>
+        <div class="chip">Entrega con PDF</div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <button class="btn-primary" onclick="window.print()">Descargar / guardar en PDF</button>
+      <button class="btn-light" onclick="limpiarFormulario()">Limpiar respuestas</button>
+    </div>
+
+    <div class="grid">
+      <section class="card half">
+        <h2>1. Título simple de la misión</h2>
+        <p><strong>Probar todo en la placa antes de usar la web</strong></p>
+      </section>
+
+      <section class="card half">
+        <h2>2. Propósito de la misión</h2>
+        <p>Vas a lograr que la placa funcione de dos maneras:</p>
+        <ul>
+          <li><strong>Modo manual:</strong> el pulsador cambia las luces.</li>
+          <li><strong>Modo automático:</strong> el sensor de luz decide qué luz se enciende.</li>
+        </ul>
+        <p>La idea es comprobar que todo anda bien <strong>antes</strong> de pasar al control por web.</p>
+      </section>
+
+      <section class="card">
+        <h2>3. Qué debe hacer el alumno</h2>
+        <ol>
+          <li>Abrí tu proyecto en Steamakers Blocks.</li>
+          <li>Creá una variable llamada <strong>modo</strong>.</li>
+          <li>Definí dos modos: <strong>manual</strong> y <strong>automático</strong>.</li>
+          <li>Hacé que el <strong>pulsador</strong> cambie entre esos modos.</li>
+          <li>En <strong>modo manual</strong>, el pulsador debe ir cambiando las luces en un orden simple.</li>
+          <li>En <strong>modo automático</strong>, el <strong>sensor de luz</strong> debe decidir qué LED se prende.</li>
+          <li>Mostrá con las luces en qué modo está trabajando la placa.</li>
+          <li>Probá varias veces y corregí lo que no funcione bien.</li>
+        </ol>
+        <div class="note">
+          Consejo: primero probá una parte sola. Después juntá todo. No intentes resolver todo al mismo tiempo.
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>4. Consulta sugerida para hacerle a la IA</h2>
+        <div class="prompt">Estoy haciendo una misión con una Wemos D1 en Steamakers Blocks.
+Quiero una lógica simple con dos modos:
+1) modo manual: cuando presiono el pulsador, cambian los LEDs
+2) modo automático: según la luz del sensor A0, se enciende un LED distinto
+
+Usá lenguaje simple y explicame los bloques paso a paso.
+También decime cómo mostrar con luces en qué modo está la placa.</div>
+      </section>
+
+      <section class="card half">
+        <h2>5. Criterio de entrega</h2>
+        <div class="okbox">
+          <p><strong>Tenés que entregar:</strong></p>
+          <ul>
+            <li>Esta plantilla completa.</li>
+            <li>Un video corto de 60 a 90 segundos.</li>
+            <li>La demostración de los dos modos funcionando.</li>
+          </ul>
+        </div>
+        <p style="margin-top:10px;">Se considera cumplida si se ve claramente que:</p>
+        <ul>
+          <li>la placa cambia entre modo manual y automático,</li>
+          <li>el pulsador funciona,</li>
+          <li>el sensor de luz produce una respuesta visible.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>6. Plantilla de trabajo para completar</h2>
+        <label>Nombre y apellido</label>
+        <input type="text" placeholder="Escribí tu nombre completo" />
+
+        <label>Fecha</label>
+        <input type="text" placeholder="Ejemplo: 17/03/2026" />
+
+        <label>Nombre de la misión</label>
+        <input type="text" value="Misión 7: Probar todo en la placa antes de usar la web" />
+
+        <label>Qué entendí de esta misión</label>
+        <textarea placeholder="Explicalo con tus palabras."></textarea>
+
+        <label>Qué le pedí a la IA</label>
+        <textarea placeholder="Copiá o resumí tu consulta."></textarea>
+
+        <label>Qué respuesta me dio la IA</label>
+        <textarea placeholder="Contá qué te explicó o qué bloques te propuso."></textarea>
+
+        <label>Qué hice con esa respuesta</label>
+        <textarea placeholder="Escribí qué armabas, qué cambiaste o qué probaste."></textarea>
+
+        <label>Resultado obtenido</label>
+        <textarea placeholder="Contá si funcionó el modo manual, el automático y qué se vio en la placa."></textarea>
+
+        <label>Qué fue lo más importante que aprendí</label>
+        <textarea class="small" placeholder="Escribí una idea importante."></textarea>
+
+        <label>Qué duda me quedó</label>
+        <textarea class="small" placeholder="Escribí una duda para seguir mejorando."></textarea>
+      </section>
+
+      <section class="card third">
+        <h2>7. Guion del video (60 a 90 segundos)</h2>
+        <div class="video-step">
+          <h3>Parte 1</h3>
+          <p><strong>0 a 10 segundos:</strong> presentate y decí el nombre de la misión.</p>
+        </div>
+        <div class="video-step">
+          <h3>Parte 2</h3>
+          <p><strong>10 a 30 segundos:</strong> mostr&aacute; el modo manual y cómo cambia con el pulsador.</p>
+        </div>
+        <div class="video-step">
+          <h3>Parte 3</h3>
+          <p><strong>30 a 50 segundos:</strong> mostr&aacute; el modo automático y cómo responde al sensor de luz.</p>
+        </div>
+        <div class="video-step">
+          <h3>Parte 4</h3>
+          <p><strong>50 a 90 segundos:</strong> explicá qué le pediste a la IA, qué bloques usaste y qué corregiste.</p>
+        </div>
+      </section>
+
+      <section class="card third">
+        <h2>8. Ejemplo simple de respuesta</h2>
+        <div class="example">
+          <p><strong>Qué entendí:</strong> tenía que hacer que la placa funcione en dos modos.</p>
+          <p><strong>Qué le pedí a la IA:</strong> le pedí ayuda para organizar los bloques del pulsador y del sensor.</p>
+          <p><strong>Resultado:</strong> en manual cambié los LEDs con el botón y en automático el sensor prendió distintas luces según la claridad.</p>
+        </div>
+      </section>
+
+      <section class="card third">
+        <h2>9. Cierre motivador</h2>
+        <p>¡Muy bien! En esta misión ya estás haciendo que la placa tome decisiones y responda sola.</p>
+        <p>Eso significa que tu sistema ya tiene una lógica real. Paso a paso, estás cada vez más cerca de controlarlo desde la web.</p>
+      </section>
+    </div>
+
+    <div class="footer">
+      Material adaptado en versión simple para aula y Classroom.
+    </div>
+  </div>
+
+  <script>
+    function limpiarFormulario(){
+      const campos = document.querySelectorAll('input, textarea');
+      campos.forEach((campo, i) => {
+        if (campo.tagName === 'INPUT' && i === 2) return;
+        if (campo.hasAttribute('value')) {
+          if (campo.value.startsWith('Misión 7:')) return;
+        }
+        campo.value = '';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión 1 - Primera prueba con la placa</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --primary:#2563eb;
+      --primary-2:#dbeafe;
+      --ok:#16a34a;
+      --border:#dbe3ef;
+      --shadow:0 10px 30px rgba(37,99,235,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:24px;
+    }
+    .hero{
+      background:linear-gradient(135deg,#2563eb,#60a5fa);
+      color:white;
+      padding:28px;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:32px;
+    }
+    .hero p{margin:0;font-size:17px}
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.25);
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:22px;
+      margin-bottom:18px;
+      box-shadow:var(--shadow);
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:24px;
+      color:#111827;
+    }
+    h3{
+      margin:18px 0 10px;
+      font-size:18px;
+      color:#1d4ed8;
+    }
+    p{margin:8px 0}
+    .steps{
+      margin:0;
+      padding-left:20px;
+    }
+    .steps li{
+      margin-bottom:10px;
+    }
+    .prompt{
+      background:#0f172a;
+      color:#e5f0ff;
+      border-radius:14px;
+      padding:16px;
+      white-space:pre-wrap;
+      border:1px solid #1e293b;
+    }
+    .mini{
+      font-size:14px;
+      color:var(--muted);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    label{
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid #cbd5e1;
+      font:inherit;
+      background:#fff;
+    }
+    textarea{
+      min-height:100px;
+      resize:vertical;
+    }
+    .full{grid-column:1/-1}
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    button{
+      border:none;
+      border-radius:12px;
+      padding:12px 18px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .btn-primary{background:var(--primary); color:#fff;}
+    .btn-secondary{background:#e5e7eb; color:#111827;}
+    .deliver{
+      background:#f0fdf4;
+      border-left:6px solid var(--ok);
+      padding:14px;
+      border-radius:12px;
+    }
+    .video-box{
+      background:#eff6ff;
+      border:1px dashed #60a5fa;
+      border-radius:14px;
+      padding:16px;
+    }
+    .footer-note{
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      margin-top:10px;
+    }
+    @media (max-width: 760px){
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:26px}
+    }
+    @media print{
+      body{background:#fff}
+      .wrap{max-width:100%; padding:0}
+      .card,.hero{box-shadow:none}
+      .actions{display:none}
+      input, textarea{border:1px solid #999}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Trayecto inicial · Misión 1</div>
+      <h1>Primera prueba con la placa</h1>
+      <p>Una versión simple, guiada y fácil de completar para alumnos principiantes.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Propósito de la misión</h2>
+      <p>En esta misión vas a conocer la placa Wemos D1 y sus partes principales.</p>
+      <p>También vas a hacer una primera prueba sencilla: lograr que el LED rojo se encienda y se apague para comprobar que la placa funciona.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Qué debe hacer el alumno</h2>
+      <ol class="steps">
+        <li>Mirar la placa y ubicar estas partes: LED rojo, LED azul, LED verde, pulsador y sensor de luz.</li>
+        <li>Abrir la plataforma de bloques y elegir la placa Wemos D1.</li>
+        <li>Pedirle ayuda a la IA para armar una prueba simple con el LED rojo.</li>
+        <li>Crear los bloques para que el LED rojo se encienda, espere un momento y se apague.</li>
+        <li>Cargar el programa en la placa.</li>
+        <li>Comprobar si el LED rojo hace la secuencia esperada.</li>
+        <li>Grabar un video corto mostrando la placa y explicando qué hiciste.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>3. Consulta sugerida para hacerle a la IA</h2>
+      <div class="prompt">Estoy trabajando con una placa Wemos D1 en programación por bloques.
+Necesito una prueba simple para principiantes.
+Quiero encender el LED rojo conectado al pin D8, esperar 1 segundo y apagarlo.
+Explicame los bloques paso a paso, con palabras muy simples.</div>
+      <p class="mini">Podés copiar este texto, pegarlo en la IA y usar la respuesta para armar tu actividad.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. Ejemplo simple de respuesta esperada</h2>
+      <p><strong>Ejemplo:</strong> “Al iniciar, poner el pin D8 en encendido, esperar 1 segundo, apagar el pin D8 y volver a esperar”.</p>
+      <p>Este ejemplo te sirve solo como guía. Lo importante es que vos puedas entender lo que hiciste.</p>
+    </section>
+
+    <section class="card">
+      <h2>5. Plantilla de trabajo para completar</h2>
+      <form>
+        <div class="grid">
+          <div>
+            <label for="nombre">Nombre y apellido</label>
+            <input id="nombre" type="text" placeholder="Escribí tu nombre completo" />
+          </div>
+          <div>
+            <label for="fecha">Fecha</label>
+            <input id="fecha" type="date" />
+          </div>
+
+          <div class="full">
+            <label for="mision">Nombre de la misión</label>
+            <input id="mision" type="text" value="Misión 1 - Primera prueba con la placa" />
+          </div>
+
+          <div class="full">
+            <label for="entendi">Qué entendí de esta misión</label>
+            <textarea id="entendi" placeholder="Ejemplo: entendí para qué sirve cada parte de la placa y cómo hacer una prueba básica."></textarea>
+          </div>
+
+          <div class="full">
+            <label for="pedi">Qué le pedí a la IA</label>
+            <textarea id="pedi" placeholder="Escribí la pregunta o prompt que usaste."></textarea>
+          </div>
+
+          <div class="full">
+            <label for="respondio">Qué respuesta me dio la IA</label>
+            <textarea id="respondio" placeholder="Copiá o resumí la respuesta de la IA."></textarea>
+          </div>
+
+          <div class="full">
+            <label for="hice">Qué hice con esa respuesta</label>
+            <textarea id="hice" placeholder="Contá qué bloques armás o qué pasos seguiste."></textarea>
+          </div>
+
+          <div class="full">
+            <label for="resultado">Resultado obtenido</label>
+            <textarea id="resultado" placeholder="Ejemplo: el LED rojo prendió y apagó correctamente."></textarea>
+          </div>
+
+          <div class="full">
+            <label for="aprendi">Qué fue lo más importante que aprendí</label>
+            <textarea id="aprendi" placeholder="Escribí tu aprendizaje principal."></textarea>
+          </div>
+
+          <div class="full">
+            <label for="duda">Qué duda me quedó</label>
+            <textarea id="duda" placeholder="Escribí una duda real, aunque sea pequeña."></textarea>
+          </div>
+        </div>
+      </form>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="window.print()" type="button">Descargar / Guardar en PDF</button>
+        <button class="btn-secondary" onclick="limpiarFormulario()" type="button">Limpiar formulario</button>
+      </div>
+      <p class="mini">Para entregar en Classroom, hacé clic en “Descargar / Guardar en PDF” y elegí “Guardar como PDF”.</p>
+    </section>
+
+    <section class="card">
+      <h2>6. Criterio de entrega</h2>
+      <div class="deliver">
+        El alumno debe entregar <strong>dos cosas</strong>:<br>
+        1) esta plantilla completa;<br>
+        2) un video corto donde muestre la placa, nombre sus partes principales y se vea la prueba del LED rojo funcionando.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Guion del video (60 a 90 segundos)</h2>
+      <div class="video-box">
+        <p><strong>Inicio (10 segundos):</strong> Decí tu nombre y nombrá la misión.</p>
+        <p><strong>Parte 2 (15 a 20 segundos):</strong> Mostrá la placa y señalá el LED rojo, azul, verde, el pulsador y el sensor de luz.</p>
+        <p><strong>Parte 3 (30 a 50 segundos):</strong> Explicá qué le pediste a la IA, qué bloques armaste y mostrá la prueba del LED rojo encendiéndose y apagándose.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Cierre motivador</h2>
+      <p>Muy bien. Ya diste tu primer paso con la placa y con la IA como ayuda. No hace falta saber todo desde el principio: lo importante es empezar, probar y entender cada pequeño avance.</p>
+    </section>
+
+    <p class="footer-note">Actividad lista para usar en aula, completar en pantalla y guardar en PDF.</p>
+  </div>
+
+  <script>
+    const fecha = document.getElementById('fecha');
+    if (fecha && !fecha.value) {
+      const hoy = new Date();
+      const y = hoy.getFullYear();
+      const m = String(hoy.getMonth()+1).padStart(2,'0');
+      const d = String(hoy.getDate()).padStart(2,'0');
+      fecha.value = `${y}-${m}-${d}`;
+    }
+
+    function limpiarFormulario(){
+      document.querySelectorAll('input[type="text"], textarea').forEach(campo => {
+        if(campo.id !== 'mision') campo.value = '';
+      });
+    }
+  </script>
+</body>
+</html>
